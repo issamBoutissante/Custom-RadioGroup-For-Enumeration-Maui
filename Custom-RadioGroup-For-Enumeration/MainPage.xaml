@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Custom_RadioGroup_For_Enumeration.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:controls="clr-namespace:Custom_RadioGroup_For_Enumeration.Controls"
+    xmlns:enums="clr-namespace:Custom_RadioGroup_For_Enumeration.Enums">
+
+    <ScrollView>
+        <controls:EnumRadioGroup
+            EnumType="{x:Type enums:YesNoEnum}"
+            HeightRequest="200"
+            WidthRequest="200" />
+    </ScrollView>
+
+</ContentPage>

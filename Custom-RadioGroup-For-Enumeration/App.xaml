@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Application
+    x:Class="Custom_RadioGroup_For_Enumeration.App"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Custom_RadioGroup_For_Enumeration">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/Styles/Colors.xaml" />
+                <ResourceDictionary Source="Resources/Styles/Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            <Color x:Key="W2WGrey">#5D5D5D</Color>
+            <Color x:Key="W2WWhite1">#FFFFFF</Color>
+            <Color x:Key="W2WBlack1">#999999</Color>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
