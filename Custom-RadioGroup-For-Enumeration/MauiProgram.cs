@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
+using Syncfusion.Maui.Core.Hosting;
 
 namespace Custom_RadioGroup_For_Enumeration
 {
@@ -18,7 +19,7 @@ namespace Custom_RadioGroup_For_Enumeration
 #if DEBUG
 		builder.Logging.AddDebug();
 #endif
-
+            builder.ConfigureSyncfusionCore();
             return builder.Build();
         }
     }

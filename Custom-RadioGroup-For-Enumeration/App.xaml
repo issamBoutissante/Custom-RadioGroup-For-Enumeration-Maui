@@ -13,6 +13,35 @@
             <Color x:Key="W2WGrey">#5D5D5D</Color>
             <Color x:Key="W2WWhite1">#FFFFFF</Color>
             <Color x:Key="W2WBlack1">#999999</Color>
+            <Color x:Key="Primary">#F8692F</Color>
+            <DataTemplate x:Key="SelectedItemStyle">
+                <Grid Padding="5">
+                    <Border
+                        BackgroundColor="{StaticResource W2WWhite1}"
+                        HeightRequest="40"
+                        HorizontalOptions="FillAndExpand"
+                        Stroke="{StaticResource Primary}"
+                        StrokeShape="RoundRectangle 10"
+                        VerticalOptions="FillAndExpand"
+                        ZIndex="10">
+                        <Border.Shadow>
+                            <Shadow
+                                Brush="{StaticResource Primary}"
+                                Opacity="0.5"
+                                Radius="5"
+                                Offset="2,2" />
+                        </Border.Shadow>
+                        <Label
+                            BackgroundColor="Transparent"
+                            FontFamily="ProductSansRegular"
+                            FontSize="14"
+                            HorizontalTextAlignment="Center"
+                            Text="{Binding}"
+                            TextColor="{StaticResource W2WGrey}"
+                            VerticalTextAlignment="Center" />
+                    </Border>
+                </Grid>
+            </DataTemplate>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

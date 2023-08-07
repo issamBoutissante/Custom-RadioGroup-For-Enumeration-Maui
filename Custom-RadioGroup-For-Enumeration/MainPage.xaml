@@ -4,13 +4,19 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:controls="clr-namespace:Custom_RadioGroup_For_Enumeration.Controls"
-    xmlns:enums="clr-namespace:Custom_RadioGroup_For_Enumeration.Enums">
-
-    <ScrollView>
+    xmlns:enums="clr-namespace:Custom_RadioGroup_For_Enumeration.Enums"
+    xmlns:syncfusion="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
+    xmlns:viewmodels="clr-namespace:Custom_RadioGroup_For_Enumeration.ViewModels">
+    <ContentPage.BindingContext>
+        <viewmodels:MainPageViewModel />
+    </ContentPage.BindingContext>
+    <VerticalStackLayout>
         <controls:EnumRadioGroup
-            EnumType="{x:Type enums:YesNoEnum}"
-            HeightRequest="200"
-            WidthRequest="200" />
-    </ScrollView>
-
+            EnumType="{x:Type enums:SmokerStateEnum}"
+            HeightRequest="60"
+            ItemSize="130"
+            ItemSpacing="5"
+            SelectedItem="{Binding SelectedYesNoEnum, Mode=TwoWay}" />
+        <Label Text="{Binding SelectedYesNoEnum, StringFormat='You have selected : {0}', Mode=TwoWay}" />
+    </VerticalStackLayout>
 </ContentPage>

@@ -1,12 +1,13 @@
+using Syncfusion.Maui.ListView;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 
 namespace Custom_RadioGroup_For_Enumeration.Controls;
 
-public partial class EnumRadioGroup : ContentView
+public partial class EnumRadioGroup : SfListView
 {
     // Enum values as an observable collection
     public ObservableCollection<Enum> EnumValues { get; private set; } = new ObservableCollection<Enum>();
-    public Enum SelectedEnumValue { get; set; }
 
     public static readonly BindableProperty EnumTypeProperty =
         BindableProperty.Create(nameof(EnumType), typeof(Type), typeof(EnumRadioGroup), null, propertyChanged: OnEnumTypeChanged);
@@ -20,7 +21,7 @@ public partial class EnumRadioGroup : ContentView
     public EnumRadioGroup()
     {
         InitializeComponent();
-        this.BindingContext = this;  // Important to set for the ItemsSource binding to work.
+        this.ItemsSource = EnumValues;
     }
 
     private static void OnEnumTypeChanged(BindableObject bindable, object oldValue, object newValue)
@@ -28,7 +29,13 @@ public partial class EnumRadioGroup : ContentView
         var control = (EnumRadioGroup)bindable;
         control.DisplayValues((Type)newValue);
     }
+    private string GetEnumDescription(Enum value)
+    {
+        var fieldInfo = value.GetType().GetField(value.ToString());
+        var attributes = (DescriptionAttribute[])fieldInfo.GetCustomAttributes(typeof(DescriptionAttribute), false);
 
+        return attributes?.Length > 0 ? attributes[0].Description : value.ToString();
+    }
     private void DisplayValues(Type enumType)
     {
         if (!enumType.IsEnum)
