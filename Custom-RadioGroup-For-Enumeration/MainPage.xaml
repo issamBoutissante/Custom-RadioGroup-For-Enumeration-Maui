@@ -4,19 +4,24 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:controls="clr-namespace:Custom_RadioGroup_For_Enumeration.Controls"
+    xmlns:converters="clr-namespace:Custom_RadioGroup_For_Enumeration.Converters"
     xmlns:enums="clr-namespace:Custom_RadioGroup_For_Enumeration.Enums"
     xmlns:syncfusion="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
     xmlns:viewmodels="clr-namespace:Custom_RadioGroup_For_Enumeration.ViewModels">
     <ContentPage.BindingContext>
         <viewmodels:MainPageViewModel />
     </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <converters:EnumMemberConverter x:Key="EnumMemberConverter" />
+    </ContentPage.Resources>
     <VerticalStackLayout>
         <controls:EnumRadioGroup
             EnumType="{x:Type enums:SmokerStateEnum}"
-            HeightRequest="60"
-            ItemSize="130"
+            HeightRequest="100"
+            IsScrollingEnabled="True"
+            ItemSize="120"
             ItemSpacing="5"
-            SelectedItem="{Binding SelectedYesNoEnum, Mode=TwoWay}" />
-        <Label Text="{Binding SelectedYesNoEnum, StringFormat='You have selected : {0}', Mode=TwoWay}" />
+            SelectedItem="{Binding SelectedSmokerStateEnum, Mode=TwoWay, Converter={StaticResource EnumMemberConverter}}" />
+        <Label HorizontalOptions="Center" Text="{Binding SelectedSmokerStateEnum, Mode=OneWay, Converter={StaticResource EnumMemberConverter}, StringFormat='You Have Selected => {0}'}" />
     </VerticalStackLayout>
 </ContentPage>

@@ -9,9 +9,14 @@ using System.Threading.Tasks;
 
 namespace Custom_RadioGroup_For_Enumeration.ViewModels
 {
-    internal partial class MainPageViewModel:ObservableObject
+    public partial class MainPageViewModel:ObservableObject
     {
         [ObservableProperty]
-        YesNoEnum? selectedYesNoEnum;
+        SmokerStateEnum? selectedSmokerStateEnum;
+        [RelayCommand]
+        public void ShowSelectedValue()
+        {
+            Shell.Current.DisplayAlert("Selected Value", this.SelectedSmokerStateEnum?.ToString()??"null", "OK");
+        }
     }
 }

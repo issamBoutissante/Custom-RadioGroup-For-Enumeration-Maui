@@ -5,22 +5,24 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:syncfusion="clr-namespace:Syncfusion.Maui.ListView;assembly=Syncfusion.Maui.ListView"
     x:Name="EnumCollectionView"
-    Margin="5"
+    Margin="0"
+    Padding="0"
     HorizontalOptions="StartAndExpand"
-    ItemSize="100"
     ItemSpacing="5"
     Orientation="Horizontal"
+    ScrollBarVisibility="Never"
     SelectedItemTemplate="{StaticResource SelectedItemStyle}"
-    SelectionMode="Single">
+    SelectionMode="Single"
+    VerticalOptions="Start">
     <syncfusion:SfListView.ItemTemplate>
         <DataTemplate>
             <Grid Padding="5">
                 <Border
                     BackgroundColor="{StaticResource W2WWhite1}"
+                    HeightRequest="40"
                     HorizontalOptions="FillAndExpand"
                     StrokeShape="RoundRectangle 10"
-                    VerticalOptions="FillAndExpand"
-                    ZIndex="10">
+                    VerticalOptions="FillAndExpand">
                     <Border.Shadow>
                         <Shadow
                             Brush="{StaticResource W2WBlack1}"
